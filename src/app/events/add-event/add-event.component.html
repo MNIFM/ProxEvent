@@ -1,0 +1,124 @@
+        <nav class="my-4" aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="accueil">Accueil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Proposer un évènement</li>
+            </ol>
+        </nav>
+
+
+        <!-- Formulaire -->
+        <div class="row mt-3">
+            <div class="col-8 offset-2 card border-dark bg-light">
+                <form [formGroup]="eventForm" (ngSubmit)="onSubmitForm()">
+                    <div class="row p-3">
+                        <div class="col-6"> 
+                            <div class="form-group">
+                                <label for="eventTitle">Titre *</label> <small id="counterTitle" class="text-muted"></small>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="eventTitle" placeholder="Titre de l'évènement" maxlength="30" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="eventPlace">Lieu <small class="text-muted">(Peut être déterminé plus tard)</small></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="eventPlace" placeholder="Lieu de l'évènement">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="eventDate">Date <small class="text-muted">(Peut être fixée plus tard)</small></label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control text-center" id="eventDate"><input type="time" class="form-control" id="eventDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="eventType">Type *</label>
+                                <select class="form-control" id="eventType"> 
+                                    <option value="" disabled selected> -- Sélectionner une option -- </option>
+                                    <option value="">Formation</option>
+                                    <option value="">Sécurité</option>
+                                    <option disabled>───────────────</option>
+                                    <option value="">Divertissement</option>
+                                    <option value="">Foot</option>
+                                    <option value="">Sport</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="eventDescription">Description *</label> <small id="counterDescription" class="text-muted"></small>
+                                <textarea class="form-control" id="eventDescription" rows="3" placeholder="Description de l'évènement" maxlength="255" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="eventMinPart">Nombre minimum de participants</label>
+                                <select class="form-control" id="eventMinPart"> 
+                                    <option value="" disabled selected>0</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">10</option>
+                                    <option value="">20</option>
+                                    <option value="">50</option>
+                                    <option value="">100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="eventMaxPart">Nombre maximum de participants</label>
+                                <select class="form-control" id="eventMaxPart"> 
+                                    <option value="" disabled selected>0</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">10</option>
+                                    <option value="">20</option>
+                                    <option value="">50</option>
+                                    <option value="">100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="eventOrganisation">Organisation</label> <small id="counterOrganisation" class="text-muted"></small>
+                                <textarea class="form-control" id="eventOrganisation" rows="3" placeholder="Précision d'organisation"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-around">
+                            <div class="form-check form-check-inline">
+                                <label class="d-flex align-items-center">
+                                    <input class="form-check-input" id="needPlace" type="checkbox" value="">Besoin de locaux ?
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="d-flex align-items-center">
+                                    <input class="form-check-input" id="needBudget" type="checkbox" value="">Besoin de budget ?
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="d-flex align-items-center">
+                                    <input class="form-check-input" id="needMeal" type="checkbox" value="">Besoin de repas ?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Valider</button>
+                            </div> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
