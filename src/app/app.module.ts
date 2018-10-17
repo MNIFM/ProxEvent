@@ -10,6 +10,8 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { EventService } from './services/event.service';
 
 
 const appRoutes: Routes = [
@@ -31,11 +33,13 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [
      AuthService,
      AuthGuard,
+     EventService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-add-event',
@@ -10,7 +12,9 @@ export class AddEventComponent implements OnInit {
 
   eventForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {   }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private eventService: EventService) {   }
 
   ngOnInit() {
     this.initForm();
@@ -18,12 +22,15 @@ export class AddEventComponent implements OnInit {
 
   initForm() {
     this.eventForm = this.formBuilder.group({
-      titre: ['', Validators.required],
+      title: ['', Validators.required],
       description: ['', Validators.required],
     });
   }
 
-  onSubmitForm() {}
+  onSubmitForm() {
+    this.eventService.saveEventToServer();
+    // this.router.navigate(['/accueil']);
+  }
 
   //  onSubmitForm() {
   //   const formValue = this.userForm.value;

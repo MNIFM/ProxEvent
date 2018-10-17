@@ -13,9 +13,11 @@
                     <div class="row p-3">
                         <div class="col-6"> 
                             <div class="form-group">
-                                <label for="eventTitle">Titre *</label> <small id="counterTitle" class="text-muted"></small>
+                                <label for="eventTitle">Titre *</label> <small id="counterTitle" class="text-muted">
+                                    ({{30 - title.value.length}}  caractères restants) 
+                                </small>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="eventTitle" placeholder="Titre de l'évènement" maxlength="30" required>
+                                    <input type="text" class="form-control" id="title" placeholder="Titre de l'évènement" maxlength="30" formControlName="title" #title>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +39,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="eventType">Type *</label>
+                                <label for="eventType">Type </label>
                                 <select class="form-control" id="eventType"> 
                                     <option value="" disabled selected> -- Sélectionner une option -- </option>
                                     <option value="">Formation</option>
@@ -51,8 +53,10 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="eventDescription">Description *</label> <small id="counterDescription" class="text-muted"></small>
-                                <textarea class="form-control" id="eventDescription" rows="3" placeholder="Description de l'évènement" maxlength="255" required></textarea>
+                                <label for="eventDescription">Description *</label> <small id="counterDescription" class="text-muted">
+                                ({{255 - description.value.length}}  caractères restants) 
+                                </small>
+                                <textarea class="form-control" id="eventDescription" rows="3" placeholder="Description de l'évènement" maxlength="255" formControlName="description" #description></textarea>
                             </div>
                         </div>
                         <div class="col-6">
@@ -91,8 +95,10 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="eventOrganisation">Organisation</label> <small id="counterOrganisation" class="text-muted"></small>
-                                <textarea class="form-control" id="eventOrganisation" rows="3" placeholder="Précision d'organisation"></textarea>
+                                <label for="eventOrganisation">Organisation</label> <small id="counterOrganisation" class="text-muted">
+                                    (Information à destination de la direction, {{512 - organisation.value.length}}  caractères restants) 
+                                </small>
+                                <textarea class="form-control" id="eventOrganisation" rows="3" maxlength="512" placeholder="Précision d'organisation" #organisation></textarea>
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-around">
@@ -114,7 +120,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Valider</button>
+                                <button type="submit" class="btn btn-primary btn-block" [disabled]="eventForm.invalid">Valider</button>
                             </div> 
                         </div>
                     </div>
