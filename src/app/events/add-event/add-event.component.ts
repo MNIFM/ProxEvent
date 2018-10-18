@@ -28,7 +28,7 @@ export class AddEventComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.eventService.saveEventToServer();
+    this.eventService.createEvent();
     // this.router.navigate(['/accueil']);
   }
 
